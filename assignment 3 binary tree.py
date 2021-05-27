@@ -107,7 +107,41 @@ class TreeNode:
       self.left = None # Point to the left node, default None
       self.right = None # Point to the right node, default None
 
+def insert(self, e):
+    if node is None:
+        return TreeNode(e)
+    elif e < node.e:
+        node.left = insert(node.left, e)
+    else:
+        node.right = insert(node.right, e)
+        
+    return node
+     
+def deleteNode(self, e):
+    if root is None:
+        return root
     
+    if e < root.key:
+        root.left = deleteNode(root.left, e)
+        
+    elif e > root.key:
+        root.right = deleteNode(root.right, e)
+        
+    else:
+        if root.left is None:
+            temp = root.right
+            root = None
+            return temp
+        elif root.right is None:
+            temp = root.left
+            root = None
+            return temp
+        
+       root.e = temp.e
+    
+    root.right = deleteNode(root.right, temp.e)
+        
+   
 
 def menu():
 
@@ -144,15 +178,15 @@ def menu():
         intkey = int(input("New integer key: "))
             
         print(numbers)
-        a.insert(intkey)
-        a.display()
+        a.insert(root,Node(intkey)
+                 
         menu()
         
     elif decision == 6:
         #delete Integer
         print("Please enter the integer key you would like to delete from the Binary tree")
         intkey = int(input("Integer key: "))
-        a.delete(intkey)
+        a.delete(root, intkey)
         menu()
         
     elif decision == 7:
