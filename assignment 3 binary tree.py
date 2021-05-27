@@ -107,6 +107,8 @@ class TreeNode:
       self.left = None # Point to the left node, default None
       self.right = None # Point to the right node, default None
 
+    
+
 def menu():
 
     print('Please select an option below:')
@@ -129,19 +131,77 @@ def menu():
         print("\n\nPostorder traversal:")
         intTree.postorder()
         menu()
+        
     elif decision == 2:
         #leaf nodes
     elif decision == 3:
         #total number of nodes
     elif decision == 4:
-
+        #depth of tree
     elif decision == 5:
-
+        #insert Integer
+        print("Please enter the new integer key you would like to insert into the Binary tree")
+        intkey = int(input("New integer key: "))
+            
+        print(numbers)
+        a.insert(intkey)
+        a.display()
+        menu()
+        
     elif decision == 6:
-
+        #delete Integer
+        print("Please enter the integer key you would like to delete from the Binary tree")
+        intkey = int(input("Integer key: "))
+        a.delete(intkey)
+        menu()
+        
     elif decision == 7:
-          exit()
+        #exit  
+        exit()
 
     else:
 
         print('Invalid input try again')
+        
+
+        
+ 
+ if __name__ == "__main__":   
+    choice = 0
+    
+    print('How would you like to build the Binary tree?:')
+    print('1. Pre-load a sequence of integers to build the Binary tree')
+    print("2. Manually enter integer values/keys, one by one, to build the Binary tree")
+    choice = int(input("choice: "))
+        
+    if choice == 1:
+        numbers = [55, 81, 65, 20, 35, 79, 23, 14, 21, 103, 92, 45, 85, 51, 47, 48, 50, 46]
+        for i in numbers:
+            a.insert(i)
+
+        menu()
+
+     
+            
+                
+    elif choice == 2:
+        numbers = []
+        n = int(input("How many items do you want in your Binary Tree?: "))
+        print("Please enter each item for the Binary tree: ")
+        for i in range(0, n):
+            value = int(input("Enter value: "))
+            numbers.append(value)
+            
+            menu()
+            
+        for i in numbers:
+            a.insert(i)
+            print(numbers)
+
+            menu()
+            
+            
+    else:
+        print("Invalid choice")
+    
+    
