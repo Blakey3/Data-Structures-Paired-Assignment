@@ -101,6 +101,39 @@ class BinaryTree:
     def getRoot(self):
       return self.root
 
+    #leaf Nodes
+    def printLeafNodes(root, TreeNode):
+        if not root:
+            return
+        if not root.left and not root.right:
+            print(root.element)
+        if root.left:
+            printLeafNodes(root.left)
+
+        if root.right:
+            printLeafNodes(root.right)
+
+
+    def depth(self):
+        left_depth = self.left.depth() if self.left else 0
+        right_depth = self.right.depth() if self.right else 0
+        return max(left_depth, right_depth) + 1
+
+    def NoNode(self):
+        self.No_Node(self.root)
+
+        
+    #No. of Nodes
+    def No_Node(self, root):
+        count = 1
+        if root != None:
+            if root.left is not None:
+                count += self.No_Node(root.left)
+            if root.right is not None:
+                count += self.No_Node(root.right)
+        return count
+        print(count)
+
 class TreeNode:
     def __init__(self, e):
       self.element = e
@@ -137,7 +170,7 @@ def deleteNode(self, e):
             root = None
             return temp
         
-       root.e = temp.e
+    root.e = temp.e
     
     root.right = deleteNode(root.right, temp.e)
         
@@ -158,7 +191,7 @@ def menu():
 
     if decision == 1:
         #preorder, postorder, in order
-         print("\nPreorder traversal:")
+        print("\nPreorder traversal:")
         intTree.preorder()
         print("\n\nInorder traversal:")
         intTree.inorder()
@@ -168,19 +201,32 @@ def menu():
         
     elif decision == 2:
         #leaf nodes
+        printLeafNodes(root)
+
+        menu()
     elif decision == 3:
         #total number of nodes
+        intTree.NoNode()
+        
+        menu()
     elif decision == 4:
         #depth of tree
+        intTree.depth()
+        
+        menu()
     elif decision == 5:
         #insert Integer
         print("Please enter the new integer key you would like to insert into the Binary tree")
         intkey = int(input("New integer key: "))
             
         print(numbers)
-        a.insert(root,Node(intkey)
-                 
+        insert(root,Node(intkey)
+               
+    
+
         menu()
+                 
+        
         
     elif decision == 6:
         #delete Integer
@@ -237,5 +283,3 @@ def menu():
             
     else:
         print("Invalid choice")
-    
-    
